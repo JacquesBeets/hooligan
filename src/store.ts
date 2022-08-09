@@ -3,6 +3,7 @@ import apiConstants from "./constants/api"
 
 class Store {
     showreel:any = [];
+    isFetchingData:boolean = false
 
     constructor(){
         makeAutoObservable(this,{
@@ -17,12 +18,19 @@ class Store {
     }
 
     fetchShowreel(type:string){
+        if(this.isFetchingData) return
+        this.isFetchingData = true
         fetch(`${apiConstants.TYPES_URL}${type}`)
             .then((resp) => resp.json())
             .then((parsedResponse) => {
                 store.showreel = parsedResponse
-                console.log(this.featuredHero)
-            });
+                this.isFetchingData = false
+                console.log(parsedResponse)
+            })
+            .catch(error => {
+                this.isFetchingData = false
+                console.error(error)
+            })
     }
 }
 

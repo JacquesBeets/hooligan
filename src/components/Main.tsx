@@ -3,6 +3,7 @@ import HeroBanner from './Hero'
 import Loader from './Loading'
 import store from '../store';
 import apiContstants from '../constants/api'
+import Collections from '../components/Collections'
 
 interface IProps {
 }
@@ -42,7 +43,7 @@ export default class Main extends React.Component<IProps, IState>{
             return (
                 <div className="main">
                     <HeroBanner/>
-                    <h1>My Collections</h1>
+                    <Collections/>
                 </div>
             )
         }       

@@ -12,7 +12,6 @@ const Hero = observer(
             super(props);
         }
     
-    
         render() {        
             let banner = store.featuredHero ? store.featuredHero.metadata.images.find((image:any) => image.type === 'background') : false
             let heroData = store.featuredHero ? store.featuredHero : false
