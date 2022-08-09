@@ -1,36 +1,46 @@
 import React from "react";
 import store from '../store';
 import apiContstants from '../constants/api'
+import { observer } from "mobx-react";
 
 interface IProps {
-
 }
 
-interface IState {
-    featuredBanner:object
-}
-
-export default class HeroBanner extends React.Component<IProps, IState>{
-    constructor(props:IProps) {
-        super(props);
-        this.state = {
-            featuredBanner: {}
+const Hero = observer(
+    class HeroBanner extends React.Component{
+        constructor(props:IProps) {
+            super(props);
+        }
+    
+    
+        render() {        
+            let banner = store.featuredHero ? store.featuredHero.metadata.images.find((image:any) => image.type === 'background') : false
+            let heroData = store.featuredHero ? store.featuredHero : false
+            return (
+                <div className="heroBanner" style={{backgroundImage:`url(${banner.url})`}}>
+                    <div className="bannerInfo">
+                        <div className="text">
+                            <h1 className="name">{heroData.name} <small>({heroData.year})</small></h1>
+                            <p className="description">{heroData.description}</p>
+                            <small className="genres">
+                                {heroData ?
+                                    heroData.genre.map((genre:any)=>{
+                                        return (
+                                            <span key={genre}>{genre} </span>
+                                        )
+                                    })
+                                    :false
+                                }
+                            </small>
+                        </div>
+                        <div className="actionContainer">
+                            <a className="btn action">Watch Now</a>
+                        </div>
+                    </div>
+                </div>
+            )
         }
     }
+)
 
-    async componentDidMount() {
-        // this.setState({
-        //     featuredBanner: store.showreel[0].children.find((elem:any) => elem.featured)
-        // })
-        console.log(store.showreel)
-        console.log(this.state.featuredBanner)
-    }
-    
-    render() {        
-        return (
-            <div className="heroBanner">
-                <h1>HERO</h1>
-            </div>
-        )
-    }
-}
+export default Hero;

@@ -1,12 +1,46 @@
 html,body {
-  margin: 0;
-  padding: 0;
   background-color: #0b0b0c;
   color: #fff;
+  margin:0;
+  padding: 0;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+h1{
+  font-size: 2.5rem;
+  margin-bottom: .5rem;
+}
+
+small{
+  font-size: 70%;
+  font-weight: 100;
+}
+
+p{
+  font-weight: 100;
+  margin-bottom: .25rem;
+}
+
+a{
+  cursor: pointer;
 }
 
 #root{
   min-height: 100vh;
+}
+
+.btn {
+  padding: 1em 2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.btn:hover{
+  filter:contrast(1.2)
 }
 
 .loadingContainer{
@@ -15,4 +49,40 @@ html,body {
   flex: 1;
   justify-content: center;
   align-items: center;
+}
+
+
+.heroBanner{
+  min-height: 85vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.bannerInfo{
+  width: 100%;
+  padding: 2rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(11,11,12,1) 60%);
+  position: absolute;
+  bottom: 0;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actionContainer{
+  width: 20%;
+  align-self: center;
+  justify-self: center;
+}
+
+.heroBanner .btn.action{
+  display: inline;
+  background-color: crimson;
+  color: #fff;
+  border-color: transparent;
+  font-size: 1.2rem;
+  box-shadow: .5em .5em 1em 0 rgba(0,0,0,0.5);
+  /* margin-right: 4rem; */
 }

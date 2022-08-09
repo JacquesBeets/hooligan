@@ -1,11 +1,19 @@
-import { makeAutoObservable } from "mobx";
+import { computed, makeAutoObservable, observable } from "mobx";
 import apiConstants from "./constants/api"
 
 class Store {
-    showreel = [];
+    showreel:any = [];
 
     constructor(){
-        makeAutoObservable(this)
+        makeAutoObservable(this,{
+            showreel: observable,
+            featuredHero: computed
+        })
+    }
+
+    get featuredHero(){
+        if(this.showreel.length === 0) return false
+        return this.showreel[0].children.find((item:any) => item.featured == true)
     }
 
     fetchShowreel(type:string){
@@ -13,7 +21,7 @@ class Store {
             .then((resp) => resp.json())
             .then((parsedResponse) => {
                 store.showreel = parsedResponse
-                console.log(store.showreel)
+                console.log(this.featuredHero)
             });
     }
 }
