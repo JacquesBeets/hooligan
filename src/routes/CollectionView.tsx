@@ -53,13 +53,10 @@ const CollectionView = observer(
             switch (type) {
                 case apiContstants.types.MOVIE:
                     return (<MovieView collectionItem={this.state.collectionItem}/>)
-                    break;
                 case apiContstants.types.EPISODES:
                     return false // TODO: Episodes Component
-                    break;
                 case apiContstants.types.SERIES:
                     return false // TODO: Series Component
-                    break;
                 default:
                     break;
             }

@@ -1,7 +1,7 @@
 import React from "react";
-import store from "../store";
 import { observer } from "mobx-react";
-import apiContants from "../constants/api"
+import apiContants from "../constants/api";
+import VideoPlayer from "../components/Video"
 
 interface IProps {
     collectionItem:any;
@@ -15,12 +15,19 @@ const MovieView = observer(
             console.log("movie",movie)       
             let banner = movie ? movie.metadata.images.find((image:any) => image.type === 'background') : false
             let videoUrl = `${apiContants.OBJECT_KEY_PREFIX}${movie.objectKey}`
+            const videoJsOptions = {
+                // autoplay: true,
+                controls: true,
+                sources: [{
+                  src: videoUrl,
+                  type: "application/x-mpegURL"
+                }]
+              }
+              console.log("videoJsOptions: ",videoJsOptions)
             return (
                 <div className="heroBanner" style={{backgroundImage:`url(${banner.url})`}}>
                     <div className="video">
-                        <video>
-                            <source src={videoUrl} type="application/x-mpegURL"></source>
-                        </video>
+                         <VideoPlayer {...videoJsOptions} />
                     </div>
                     <div className="bannerInfo">
                         <div className="text">
