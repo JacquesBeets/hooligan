@@ -27,7 +27,7 @@ const Hero = observer(
                             </small>
                         </div>
                         <div className="actionContainer">
-                            <Link to="/collectionview">
+                            <Link to={`/collectionview/${heroData.guid}`}>
                                 <button className="btn action">Watch Now</button>
                             </Link>
                         </div>

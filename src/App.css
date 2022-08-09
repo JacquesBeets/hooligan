@@ -42,9 +42,11 @@ p{
 
 a{
   cursor: pointer;
+  text-decoration: none;
 }
 
-#root{
+#root,
+.collectionView{
   min-height: 100vh;
 }
 
@@ -101,6 +103,7 @@ a{
   border-color: transparent;
   font-size: 1.2rem;
   box-shadow: .5em .5em 1em 0 rgba(0,0,0,0.5);
+  cursor: pointer;
   /* margin-right: 4rem; */
 }
 
@@ -138,5 +141,7 @@ a{
   width: 300px;
   height: 450px;
   image-rendering: crisp-edges;
-  object-fit: contain;
+  object-fit: cover;
 }
+
+.collectionView{}

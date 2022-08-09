@@ -13,7 +13,7 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="collectionview" element={<CollectionView />} />
+      <Route path="/collectionview/:id" element={<CollectionView />} />
     </Routes>
   </BrowserRouter>
 );
