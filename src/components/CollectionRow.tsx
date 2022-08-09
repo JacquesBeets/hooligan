@@ -14,7 +14,6 @@ const CollectionsRow = observer(
         }
 
         render() {        
-            let banner = store.featuredHero ? store.featuredHero.metadata.images.find((image:any) => image.type === 'background') : false
             let children = this.props.collectionCildren
 
             return (

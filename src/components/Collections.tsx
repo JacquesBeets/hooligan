@@ -9,8 +9,6 @@ const Collections = observer(
     class MyCollections extends React.Component{
     
         render() {        
-            let banner = store.featuredHero ? store.featuredHero.metadata.images.find((image:any) => image.type === 'background') : false
-            let heroData = store.featuredHero ? store.featuredHero : false
             return (
                 <div className="collectionsContainer">
                     {

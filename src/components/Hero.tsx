@@ -25,7 +25,7 @@ const Hero = observer(
                                 {heroData ?
                                     heroData.genre.map((genre:any)=>{
                                         return (
-                                            <span key={genre}>{genre} </span>
+                                            <span key={genre}>{genre}</span>
                                         )
                                     })
                                     :false

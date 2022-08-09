@@ -13,7 +13,6 @@ const CollectionCard = observer(
         }
 
         duration(timeInSeconds:number){
-            console.log(timeInSeconds)
             let minutes = timeInSeconds/60
             return minutes.toFixed()
         }
