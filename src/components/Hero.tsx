@@ -1,7 +1,7 @@
 import React from "react";
 import store from '../store';
 import { observer } from "mobx-react";
-
+import { Link } from "react-router-dom";
 
 const Hero = observer(
     class HeroBanner extends React.Component{
@@ -19,7 +19,7 @@ const Hero = observer(
                                 {heroData ?
                                     heroData.genre.map((genre:any)=>{
                                         return (
-                                            <span key={genre}>{genre}</span>
+                                            <span key={genre}>{genre} </span>
                                         )
                                     })
                                     :false
@@ -27,7 +27,9 @@ const Hero = observer(
                             </small>
                         </div>
                         <div className="actionContainer">
-                            <a className="btn action">Watch Now</a>
+                            <Link to="/collectionview">
+                                <button className="btn action">Watch Now</button>
+                            </Link>
                         </div>
                     </div>
                 </div>

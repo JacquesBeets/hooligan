@@ -22,7 +22,7 @@ export default class Main extends React.Component<IProps, IState>{
 
     async componentDidMount() {
         try {
-            await store.fetchShowreel(apiContstants.types.COLLECTION)
+            // await store.fetchShowreel(apiContstants.types.COLLECTION)
             this.setState({
                 isLoading: false
             })
