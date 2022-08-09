@@ -14,7 +14,7 @@ class Store {
 
     get featuredHero(){
         if(this.showreel.length === 0) return false
-        return this.showreel[0].children.find((item:any) => item.featured == true)
+        return this.showreel[0].children.find((item:any) => item.featured === true)
     }
 
     fetchShowreel(type:string){

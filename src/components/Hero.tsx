@@ -1,17 +1,11 @@
 import React from "react";
 import store from '../store';
-import apiContstants from '../constants/api'
 import { observer } from "mobx-react";
 
-interface IProps {
-}
 
 const Hero = observer(
     class HeroBanner extends React.Component{
-        constructor(props:IProps) {
-            super(props);
-        }
-    
+
         render() {        
             let banner = store.featuredHero ? store.featuredHero.metadata.images.find((image:any) => image.type === 'background') : false
             let heroData = store.featuredHero ? store.featuredHero : false

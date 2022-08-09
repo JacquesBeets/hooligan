@@ -1,5 +1,4 @@
 import React from "react";
-import store from '../store';
 import { observer } from "mobx-react";
 
 interface IProps {
@@ -8,10 +7,6 @@ interface IProps {
 
 const CollectionCard = observer(
     class MyCollectionCard extends React.Component<IProps>{
-        constructor(props:IProps) {
-            super(props);
-        }
-
         duration(timeInSeconds:number){
             let minutes = timeInSeconds/60
             return minutes.toFixed()

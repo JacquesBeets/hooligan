@@ -1,5 +1,4 @@
 import React from "react";
-import store from '../store';
 import CollectionCard from "./CollectionCard";
 import { observer } from "mobx-react";
 
@@ -9,10 +8,6 @@ interface IProps {
 
 const CollectionsRow = observer(
     class MyCollectionsRow extends React.Component<IProps>{
-        constructor(props:IProps) {
-            super(props);
-        }
-
         render() {        
             let children = this.props.collectionCildren
 
