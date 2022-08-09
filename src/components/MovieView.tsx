@@ -1,7 +1,7 @@
 import React from "react";
-import store from '../store';
+import store from "../store";
 import { observer } from "mobx-react";
-import { Link } from "react-router-dom";
+import apiContants from "../constants/api"
 
 interface IProps {
     collectionItem:any;
@@ -13,33 +13,38 @@ const MovieView = observer(
         render() { 
             let movie = this.props.collectionItem
             console.log("movie",movie)       
-            // let banner = store.featuredHero ? store.featuredHero.metadata.images.find((image:any) => image.type === 'background') : false
-            // let heroData = store.featuredHero ? store.featuredHero : false
+            let banner = movie ? movie.metadata.images.find((image:any) => image.type === 'background') : false
+            let videoUrl = `${apiContants.OBJECT_KEY_PREFIX}${movie.objectKey}`
             return (
-                <h1>MOVIE</h1>
-                // <div className="heroBanner" style={{backgroundImage:`url(${banner.url})`}}>
-                //     <div className="bannerInfo">
-                //         <div className="text">
-                //             <h1 className="name">{heroData.name} <small>({heroData.year})</small></h1>
-                //             <p className="description">{heroData.description}</p>
-                //             <small className="genres">
-                //                 {heroData ?
-                //                     heroData.genre.map((genre:any)=>{
-                //                         return (
-                //                             <span key={genre}>{genre} </span>
-                //                         )
-                //                     })
-                //                     :false
-                //                 }
-                //             </small>
-                //         </div>
-                //         <div className="actionContainer">
-                //             <Link to={`/collectionview/${heroData.guid}`}>
-                //                 <button className="btn action">Watch Now</button>
-                //             </Link>
-                //         </div>
-                //     </div>
-                // </div>
+                <div className="heroBanner" style={{backgroundImage:`url(${banner.url})`}}>
+                    <div className="video">
+                        <video>
+                            <source src={videoUrl} type="application/x-mpegURL"></source>
+                        </video>
+                    </div>
+                    <div className="bannerInfo">
+                        <div className="text">
+                            <h1 className="name">{movie.name} <small>({movie.year})</small></h1>
+                            <p className="description">{movie.description}</p>
+                            <small className="genres">
+                                {movie ?
+                                    movie.genre.map((genre:any)=>{
+                                        return (
+                                            <span key={genre}>{genre} </span>
+                                        )
+                                    })
+                                    :false
+                                }
+                            </small>
+                        </div>
+                        {/* <div className="actionContainer">
+                            <Link to={`/collectionview/${movie.guid}`}>
+                                <button className="btn action">Watch Now</button>
+                            </Link>
+                        </div> */}
+                    </div>
+
+                </div>
             )
         }
     }
