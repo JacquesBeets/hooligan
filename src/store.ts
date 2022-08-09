@@ -1,11 +1,20 @@
 import { makeAutoObservable } from "mobx";
-import apiConstants from "../constants/api"
+import apiConstants from "./constants/api"
 
 class Store {
-    showreel:any = [];
+    showreel = [];
 
     constructor(){
         makeAutoObservable(this)
+    }
+
+    fetchShowreel(type:string){
+        fetch(`${apiConstants.TYPES_URL}${type}`)
+            .then((resp) => resp.json())
+            .then((parsedResponse) => {
+                store.showreel = parsedResponse
+                console.log(store.showreel)
+            });
     }
 }
 
