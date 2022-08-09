@@ -11,8 +11,7 @@ const MovieView = observer(
     class MovieViewClass extends React.Component<IProps>{
 
         render() { 
-            let movie = this.props.collectionItem
-            console.log("movie",movie)       
+            let movie = this.props.collectionItem   
             let banner = movie ? movie.metadata.images.find((image:any) => image.type === 'background') : false
             let videoUrl = `${apiContants.OBJECT_KEY_PREFIX}${movie.objectKey}`
             const videoJsOptions = {
@@ -44,11 +43,6 @@ const MovieView = observer(
                                 }
                             </small>
                         </div>
-                        {/* <div className="actionContainer">
-                            <Link to={`/collectionview/${movie.guid}`}>
-                                <button className="btn action">Watch Now</button>
-                            </Link>
-                        </div> */}
                     </div>
 
                 </div>

@@ -4,7 +4,7 @@ import apiConstants from "./constants/api"
 class Store {
     showreel:any = [];
     isFetchingData:boolean = false
-    selectedCollection:object = {}
+    collectionItem:object = {}
 
     constructor(){
         makeAutoObservable(this,{
@@ -27,7 +27,6 @@ class Store {
             .then((parsedResponse) => {
                 store.showreel = parsedResponse
                 this.isFetchingData = false
-                console.log(parsedResponse)
                 return parsedResponse
             })
             .catch(error => {
@@ -43,9 +42,8 @@ class Store {
         return fetch(`${apiConstants.ITEM_GUID_URL}${guid}`)
             .then((resp) => resp.json())
             .then((parsedResponse) => {
-                store.showreel = parsedResponse
+                store.collectionItem = parsedResponse
                 this.isFetchingData = false
-                console.log("fetchItemByGuid: ",parsedResponse)
                 return parsedResponse
             })
             .catch(error => {
