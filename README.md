@@ -46,6 +46,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 # Docker
+App can be run locally with "npm start" but can also be built using the docker instructions below.
 Source used for containerizing react app: https://mherman.org/blog/dockerizing-a-react-app/
 
 ## Build Docker Image:
@@ -67,3 +68,16 @@ $ docker run \
     hooligan-assessment:dev
 
 ```
+
+# My Two Cents
+
+### Scale To Millions
+I had great fun working on this assessment and also learned a couple of things along the way. Scaling the solution to millions would require a more cleaner and organized codebased with a better folder structure for easier navigation. Although I havn't included automated tests, I would approach this in a TDD manner in order to minimize those pesky bugs. Additionally I would also include end to end testing with something like Cypress. Moving it over to a framework like Next.js that already handles a lot of the setup involved in such an application(eg.routing) would be a great idea. Continues Integration and Deployment will also play a big part in this.
+
+### Logging and Monitoring
+For logging and tracking errors on such a large scale I would use a solution like Sentry with breadcrums that allows better insights on how the error came about in the first place.
+
+### Some Challenges I faced
+Ran into a challenge with the HLS streaming part, getting CORS errors. Initially I thought it was the plugin, doing research, it was pointed out that the browser can throw CORS erros when it could be the plugin or a wrong setup from my part. I tried a diffrent plugin but got the same result so I can attribute this to be a valid CORS error and me deving on local. To get around this, I could route the call through a Proxy that has CORS disabled.
+
+Mobx was also a new one for me. Being used to Vuex, the store is kinda similar but directly mutating the state from an action gave me nervous hart pulputations :laughing:. Also need to do more research on the observers to get a better understanding on how its used.
