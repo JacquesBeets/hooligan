@@ -72,7 +72,7 @@ $ docker run \
 # My Two Cents
 
 ### Scale To Millions
-I had great fun working on this assessment and also learned a couple of things along the way. Scaling the solution to millions would require a more cleaner and organized codebased with a better folder structure for easier navigation. Although I havn't included automated tests, I would approach this in a TDD manner in order to minimize those pesky bugs. Additionally I would also include end to end testing with something like Cypress. Moving it over to a framework like Next.js that already handles a lot of the setup involved in such an application(eg.routing) would be a great idea. Continues Integration and Deployment will also play a big part in this.
+I had great fun working on this assessment and also learned a couple of things along the way. Scaling the solution to millions would require a more cleaner and organized codebase with a better folder structure for easier navigation. Although I havn't included automated tests, I would approach this in a TDD manner in order to minimize those pesky bugs. Additionally I would also include end to end testing with something like Cypress. Moving it over to a framework like Next.js that already handles a lot of the setup involved in such an application(eg.routing) would be a great idea. Continues Integration and Deployment will also play a big part in this.
 
 ### Logging and Monitoring
 For logging and tracking errors on such a large scale I would use a solution like Sentry with breadcrums that allows better insights on how the error came about in the first place.
